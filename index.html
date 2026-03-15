@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kartu THR Idul Fitri</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+overflow-x:hidden;
+
+/* Background masjid */
+
+background-image:url("https://images.unsplash.com/photo-1564769625905-50e93615e769");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* lapisan gelap supaya teks tetap terbaca */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* Bintang */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://i.imgur.com/YKY28eT.png");
+animation:stars 60s linear infinite;
+opacity:0.4;
+}
+
+@keyframes stars{
+from{background-position:0 0;}
+to{background-position:1000px 1000px;}
+}
+
+/* Container */
+
+.container{
+position:relative;
+padding-top:80px;
+}
+
+/* Bulan */
+
+.moon{
+font-size:70px;
+animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+from{filter:drop-shadow(0 0 10px gold);}
+to{filter:drop-shadow(0 0 25px gold);}
+}
+
+/* Lentera */
+
+.lentera{
+font-size:45px;
+margin:20px;
+animation:goyang 4s ease-in-out infinite;
+}
+
+@keyframes goyang{
+0%{transform:rotate(-6deg);}
+50%{transform:rotate(6deg);}
+100%{transform:rotate(-6deg);}
+}
+
+/* Card */
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(3px);
+max-width:600px;
+margin:auto;
+padding:40px;
+border-radius:20px;
+box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+h1{
+color:#ffd700;
+font-size:32px;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+}
+
+/* QR */
+
+.qr img{
+width:240px;
+margin-top:25px;
+border-radius:12px;
+background:white;
+padding:10px;
+animation:qrglow 2s infinite alternate;
+}
+
+@keyframes qrglow{
+from{box-shadow:0 0 10px gold;}
+to{box-shadow:0 0 30px gold;}
+}
+
+/* Tulisan scan */
+
+.scan{
+margin-top:10px;
+font-weight:bold;
+color:#ffd700;
+}
+
+/* Confetti */
+
+.confetti{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+<div class="moon">🌙</div>
+
+<div class="lentera">🏮 🏮 🏮</div>
+
+<div class="card">
+
+<h1>Selamat Hari Raya Idul Fitri</h1>
+
+<p>
+Minal Aidzin Wal Faidzin<br>
+mohon maaf lahir dan batin
+</p>
+
+<p>
+jika ada salah kata mohonlah dimaafkan<br>
+🙏🙏🙏</p>
+<p>Demi memperkuat silaturahmi<br>
+bagi THR dengan scan barcode ini
+</p>
+
+<div class="qr">
+<img src="qr.png">
+</div>
+
+<div class="scan">
+Scan disini kirim THR 😆💸
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Confetti generator */
+
+for(let i=0;i<40;i++){
+
+let conf=document.createElement("div");
+
+conf.className="confetti";
+
+conf.innerHTML=["🎉","✨","💰","🌙"][Math.floor(Math.random()*4)];
+
+conf.style.left=Math.random()*100+"vw";
+
+conf.style.animationDuration=(3+Math.random()*5)+"s";
+
+conf.style.opacity=Math.random();
+
+document.body.appendChild(conf);
+
+}
+
+</script>
+
+</body>
+</html>
